@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task-8</title>
 </head>
+<link rel="stylesheet" href="../css/task-8.css">
 <body>
     <ul>
         <li><a href="./task-1.html">task-1</a></li>
@@ -16,6 +17,14 @@
         <li><a href="./task-7.html">task-7</a></li>
         <li><a href="./task-8.html">task-8</a></li>
     </ul>
+
+    <div id="controls">
+        <input type="number" min="0" max="100" step="1" />
+        <button type="button" data-action="render">Создать</button>
+        <button type="button" data-action="destroy">Очистить</button>
+    </div>
+    
+    <div id="boxes"></div>
 
     <script src="../js/task-8.js" type="module"></script>
 </body>
