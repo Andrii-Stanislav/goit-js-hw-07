@@ -6,37 +6,32 @@ const boxesBox = document.querySelector('#boxes');
 
 let numberOfSquares = 0;
 inputNumberOfSquares.addEventListener('change', readInputNumber);
-
 renderBtn.addEventListener('click', createBoxes);
 destroyBtn.addEventListener('click', destroyBoxes);
 
-function createBoxes(numberOfSquares) {
+function createBoxes(event) {
     let boxes = ``;
-    for (const i = 0; i < numberOfSquares; i+=1) {
-        boxes += `<div style="border:blue;width:${30 + i * 10}px;height:${30 + i * 10}px"></div>`; 
-        boxes += 'evd'
-    }
-    console.log(boxes);
-    
+
+    for (let i = 0; i < numberOfSquares; i += 1) {
+        boxes = boxes + `<div class="child-div" style="background-color: ${randomColorGenerator()}; width: ${30 + i * 10}px; height: ${30 + i * 10}px; margin: 5px"></div>`;
+    }    
     boxesBox.insertAdjacentHTML('afterbegin', boxes);
 };
 
-function destroyBoxes() {
+function randomColorGenerator() {
+    const r = Math.floor(Math.random() * (256));
+    const g = Math.floor(Math.random() * (256));
+    const b = Math.floor(Math.random() * (256));
+    const color = '#' + r.toString(16) + g.toString(16) + b.toString(16);
+    return color;
+}
 
+function destroyBoxes() {
+    const childBox = [...document.querySelectorAll('.child-div')];
+    childBox.map((elem) => {elem.remove()});
 };
 
 function readInputNumber(event) {
     numberOfSquares = Number(event.target.value);
     return numberOfSquares;
-}
-
-// const galleryList = document.querySelector('#gallery');
-// const galleryItems = images.reduce((acc, {url, alt}) => {
-//     const image = `<li class="gallery-item"><img class="gallery-img" src="${url}" alt="${alt}"></img></li>`;
-//     return acc += image;
-//  }, '');
-
-// console.log(galleryItems);
-
-// galleryList.insertAdjacentHTML('afterbegin' , galleryItems);
-
+};
