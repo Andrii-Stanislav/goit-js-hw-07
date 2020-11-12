@@ -7,11 +7,13 @@
   'Приправи',
  ];
 
+const list = document.querySelector('#ingredients');
+
 const ingredientsList = ingredients.map((ingredient) => { 
     const liElem = document.createElement('li');
     liElem.textContent = ingredient;
 
-    document.querySelector('#ingredients').appendChild(liElem);
+    list.appendChild(liElem);
     return liElem;
 });
 

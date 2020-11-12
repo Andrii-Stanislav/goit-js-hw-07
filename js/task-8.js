@@ -13,17 +13,22 @@ function createBoxes(event) {
     let boxes = ``;
 
     for (let i = 0; i < numberOfSquares; i += 1) {
-        boxes = boxes + `<div class="child-div" style="background-color: ${randomColorGenerator()}; width: ${30 + i * 10}px; height: ${30 + i * 10}px; margin: 5px"></div>`;
+        boxes = boxes + `<div class="child-div" 
+            style="background-color: ${randomColorGenerator()}; 
+            width: ${30 + i * 10}px; height: ${30 + i * 10}px; margin: 5px">
+            </div>`;
     }    
     boxesBox.insertAdjacentHTML('afterbegin', boxes);
 };
 
 function randomColorGenerator() {
-    const r = Math.floor(Math.random() * (256));
-    const g = Math.floor(Math.random() * (256));
-    const b = Math.floor(Math.random() * (256));
-    const color = '#' + r.toString(16) + g.toString(16) + b.toString(16);
-    return color;
+    return '#' + randomRgb().toString(16)
+        + randomRgb().toString(16)
+        + randomRgb().toString(16);
+}
+
+function randomRgb() {
+    return Math.floor(Math.random() * (256));
 }
 
 function destroyBoxes() {

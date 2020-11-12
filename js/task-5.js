@@ -3,7 +3,7 @@ const nameOutput = document.querySelector('#name-output');
 
 nameInput.addEventListener('input',output);
 
-function output(event) {
+function output({target: {value}}) {
 
-    nameOutput.textContent = (event.target.value !== '') ? event.target.value : 'незнакомец';
+    nameOutput.textContent = (value!== '') ? value : 'незнакомец';
  }

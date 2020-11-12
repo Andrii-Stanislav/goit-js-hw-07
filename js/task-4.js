@@ -14,6 +14,6 @@ function decrement() {
 function increment() {
     counterValue += 1;
     displayValue.textContent = counterValue;
-};
+}
 
 
